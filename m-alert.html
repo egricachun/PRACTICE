@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+<style>
+	[class*="m-icon-"],[class^=m-icon-]{
+		font-family: element-icons!important;
+		speak: none;
+		font-style: normal;
+		font-weight:400;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		vertical-align: baseline;
+		display: inline-block;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.m-alert{
+		width: 100%;
+		padding: 8px 16px;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: 4px;
+		position: relative;
+		background-color: #fff;
+		overflow: hidden;
+		color: #FFFFFF;
+		display: table;
+		transition: opacity 0.2s;
+		margin-top:10px;
+		border: 1px solid #ccc;
+	}
+	.m-content{
+		display: table-cell;
+		padding: 0 8px;
+	}
+	.m-message{
+		font-size: 13px;
+		line-height: 18px;
+	}
+	/*不同狀態樣式*/
+	.m-alert-success{
+		background-color: #13ce66;
+	}
+	.m-alert-info{
+		background-color:#50bfff;
+	}
+	.m-alert-warning{
+		background-color:#f7ba2a;
+	}
+	.m-alert-error{
+		background-color:#ff4949;
+	}
+	/*關閉按鈕樣式*/
+	.m-closebtn{
+		font-size:12px;
+		color:#fff;
+		opacity: 1;
+		top:12px;
+		right: 15px;
+		position: absolute;
+		cursor: pointer;
+	}
+	.m-icon-close:before{
+		content: "\E60C";
+	}
+	/*小圖標樣式*/
+	.m-icon{
+		font-size: 16px;
+		width: 16px;
+		display: table-cell;
+		color: #FFFFFF;
+		vertical-align: middle;
+	}
+	.m-icon-success:before{
+		content: "\E609";
+	}
+	.m-icon-warning:before{
+		content: "\E615";
+	}
+	.m-icon-info:before{
+		content: "\E615";
+	}
+	.m-icon-error:before{
+		content: "\E60B";
+	}
+	/*自定義圖標*/
+	.m-icon-message:before{
+		content: "E618";
+	}
+	.m-icon-menu:before{
+		content: "E617";
+	}
+	.m-icon-setting:before{
+		content: "E61E";
+	}
+	#app{
+		width: 500px;
+	}
+</style>
+	
+	<body>
+		<div id="app">
+			<div class="m-alert m-alert-info" :class="">
+				<i class="m-icon m-icon-info"></i>
+				<div class="m-content">
+					<span class="m-message">這裡是提示信息</span>
+					<i class="m-closebtn m-icon-close"></i>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			Vue.component("m-alert")
+			new Vue({
+				el:"#app"
+			})
+		</script>
+	</body>
+</html>

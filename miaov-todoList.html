@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>ToDoList</title>  
+    <link rel="stylesheet" type="text/css" href="./css/index.css">  
+    <script src = "./js/vue.js"></script>  
+</head>  
+
+<body>  
+    <div class="page-top">  
+        <div class="page-content">  
+            <h2>任务计划列表</h2>  
+        </div>  
+    </div>  
+    <div class="main">  
+        <h3 class="big-title">添加任务：</h3>  
+        <input type="text" checked="" placehoder="例如：吃饭睡觉打豆豆；提示：+回车即可添加任务" class="task-input" v-model="newTodo" @keyup.enter="addTodo" />  
+        <ul class="task-count" v-show="list.length">  
+            <li>{{noChooseLength}}个任务未完成</li>  
+            <li class="action">  
+                <a :class="{active:visibility === 'all'}" href="#all">所有任务</a>  
+                <a :class="{active:visibility === 'unfinished'}" href="#unfinished">未完成的任务</a>  
+                <a :class="{active:visibility === 'finish'}" href="#finish">完成的任务</a>  
+            </li>  
+        </ul>  
+        <h3 class="big-title">任务列表：</h3>  
+        <div class="tasks">  
+        <span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>  
+        <ul class="todo-list">  
+            <li class="todo" v-for="(item,index) in filterList" :class="{'completed':item.isChoose,'editing':item === editTodo}">
+                <div class="view">  
+                    <input type="checkbox" class="toggle" v-model="item.isChoose" >  
+                    <label @dblclick="deitTodo(item)" v-text="item.title"></label>  
+                    <button class="destroy" @click="delTodo(index)"></button>  
+                </div>  
+                <input v-focus="editTodo === item" type="text" class="edit" v-model="item.title" @blur="suerEdit(item)" @keyup.enter="suerEdit(item)" @keyup.esc="cancelTodo(item)" />  
+            </li>  
+        </ul>  
+        </div>  
+    </div>  
+  
+    <script src="./js/miaov-todoList.js"></script>  
+</body>  
+</html>
+		
+	</body>
+</html>
